@@ -1,0 +1,286 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat;
+        background-color: #A0C4DC;
+    }
+
+    .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+        .wrapper h1 {
+            padding: 30px 0;
+            text-align: center;
+        }
+
+    .project {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .shop {
+        flex: 75%;
+    }
+
+    .box {
+        display: flex;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background: #fff;
+        transform: all .6s ease;
+        box-shadow: rgba(100,100,111,0.2) 0 7px 29px 0;
+    }
+
+        .box:hover {
+            transform: scale(1.02);
+        }
+
+        .box img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    .content {
+        padding: 20px;
+        position: relative;
+        width: 100%;
+    }
+
+        .content h3 {
+            margin-bottom: 30px;
+        }
+
+        .content h4 {
+            margin-bottom: 50px;
+        }
+
+    .btn-area {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 25px;
+        background-color: #6180F0;
+        color: azure;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+        .btn-area:hover {
+            background-color: chartreuse;
+            background: radial-gradient(#F05D4C, #F91900);
+            color: crimson;
+        }
+        a{
+        color: white;
+        }
+
+    .unit input {
+        width: 50px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .btn-area i {
+        margin-right: 5px;
+    }
+
+    .right-bar {
+        flex: 25%;
+        margin-left: 20px;
+        padding: 20px;
+        height: 470px;
+        border-radius: 5px;
+        background-color: cyan;
+        box-shadow: rgba(100,100,111,0.2) 0 7px 29px 0;
+    }
+
+        .right-bar hr {
+            margin-bottom: 25px;
+        }
+
+        .right-bar p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            font-size: 20px;
+        }
+
+        .right-bar i {
+            margin-right: 15px;
+        }
+
+        .right-bar a:hover {
+            background-color: #397ca7;
+        }
+
+    .cek {
+        background-color: gold;
+        box-shadow: rgba(100,100,111,0.2) 0 7px 29px 0;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+
+
+ 
+
+    <div class="wrapper">
+        <h1>ФАЙНА ГОСПОДИНЯ</h1>
+        <div class="project">
+
+            @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
+            {
+                foreach (var product in ViewBag.Products)
+                {
+                    <div class="shop">
+                        <div class="box">
+                            <img src="~/Imeg2/@product.Name/@product.PathLong" />
+                            <div class="content">
+                                <h3 class="item">@product.Name</h3>
+                                <h4 class="prod-price price">@product.Price</h4>
+                                <p class="unit">Quantity: <input type="number" class="quantity" value="1" min="1" max="@product.Number" /></p>
+                                <p class="btn-area">
+                                    <a asp-controller="BasketUser" asp-action="Remove" asp-route-id="@product.Id">
+                                    <i class="fa fa-trash"></i>
+                                    <span class="btn2">Remove</span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                }
+            }
+            else
+            {
+                <p>Your cart is empty.</p>
+            }
+            
+            <div class="right-bar">
+                <p><span>Subtotal</span> <span id="subtotal">0 грн</span></p>
+                <hr />
+
+                <p><span>Tax (5%)</span> <span id="tax">0 грн</span></p>
+                <hr />
+
+                <p><span>Shipping</span> <span>According to the tariffs of the carrier</span></p>
+                <hr />
+
+                <p><span>Total</span> <span id="total">0 грн</span></p>
+                <form style="justify-content:center;">
+
+                    <button asp-controller="Zamovlenya" asp-action="Index" class="cek"><img src="/Imeg/basket2.png" width="20px" height="20px" />Checkoute</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="~/js/jquery-3.6.1.min.js" asp-append-version="true"></script>
+<script>
+
+    //function updateCart() {
+    //    var subtotal = 0;
+    //    $(".shop").each(function () {
+    //        console.log("1");
+    //        var price = parseFloat($(this).find(".prod-price").text().replace(" грн", ""));
+    //        var quantity = parseInt($(this).find(".quantity").val());
+    //        subtotal += price * quantity;
+    //    });
+
+    //    var tax = subtotal * 0.05;
+    //    var total = subtotal + tax;
+    //    console.log("12");
+
+    //    $("#subtotal").text(subtotal.toFixed(2) + " грн");
+    //    $("#tax").text(tax.toFixed(2) + " грн");
+    //    $("#total").text(total.toFixed(2) + " грн");
+    //}
+
+    $(function () {
+        // задаємо початкове значення "subtotal" рівним 0
+        var subtotal = 0;
+        console.log("123");
+        updateCart();
+
+        // Розраховуємо значення кожного разу, коли змінюється кількість продукту
+        $(".quantity").change(updateCart);
+
+        function updateCart() {
+            console.log("1234");
+
+            var subtotal = 0;
+            $(".shop").each(function () {
+                console.log("12345");
+
+                var price = parseFloat($(this).find(".prod-price").text());
+                var quantity = parseInt($(this).find(".quantity").val());
+                console.log('price:', price);
+                console.log('quantity:', quantity);
+               
+                subtotal += price * quantity;
+            });
+
+            var tax = subtotal * 0.05;
+            var total = subtotal + tax;
+            console.log("123456");
+            console.log('subtotal:', subtotal);
+            console.log('tax:', tax);
+            console.log('total:', total);
+
+
+            $("#subtotal").text(subtotal.toFixed(2) + " грн");
+            $("#tax").text(tax.toFixed(2) + " грн");
+            $("#total").text(total.toFixed(2) + " грн");
+            console.log($("#subtotal").text(subtotal.toFixed(2) + " грн"));
+            console.log("-");
+            console.log($("#tax").text(tax.toFixed(2) + " грн"));
+            console.log("-");
+            console.log($("#total").text(total.toFixed(2) + " грн"));
+
+        }
+    });
+
+
+    //// отримати список товарів та їх вартості
+    ////var items = document.getElementsByClassName("item");
+    ////var prices = document.getElementsByClassName("price");
+
+    //// обчислити підсумкову вартість
+    ////var subtotal = 0;
+    ////for (var i = 0; i < items.length; i++) {
+    ////    subtotal += parseFloat(prices[i].innerHTML);
+    ////}
+
+    //// обчислити податок (5%)
+    ////var tax = subtotal * 0.05;
+
+    //// обчислити загальну вартість
+    ////var total = subtotal + tax;
+    ////console.log('subtotal:', subtotal);
+    ////console.log('tax:', tax);
+    ////console.log('total:', total);
+    //// встановити значення для відповідних елементів на сторінці
+    ////document.getElementById("subtotal").innerHTML = subtotal + " грн";
+    ////document.getElementById("tax").innerHTML = tax + " грн";
+    ////document.getElementById("total").innerHTML = total + " грн";
+
+</script>
+
+
+

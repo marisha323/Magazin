@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Magazin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Magazin.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar  navbar-expand navbar-dark " style="background-color:#949FE7">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" style="background-color:#386FE3" id="navbarTogglerDemo01">
+                <img class="navbar-brand" width="100px" height="90px" src="/Imeg/GIV.gif">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link text-warning" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-warning" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <input form="buton1s" name="searh" class="form-control mr-sm-2 w-25" type="search" placeholder="Search" aria-label="Search">
+                <form name="buton1s" class="form-inline bg-dark my-2 my-lg-0">
+                    <button class="btn btn-outline-success my-2 my-sm-0 text-warning" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+                    <li class="nav-item active">
+
+                        <a class="nav-link text-warning" asp-controller="Registration" asp-action="Index"><img width="30px" height="30px" src="/Imeg/user1.png" /></a>
+
+                    </li>
+                    <li class="nav-item">
+
+
+                        <a class="nav-link text-warning" asp-controller="BasketUser" asp-action="Index"><img width="30px" height="30px" src="/Imeg/basket1.png" /></a>
+
+                    </li>
+                    <li class="nav-item">
+
+
+                        <a class="nav-link text-warning" asp-controller="BasketHistory" asp-action="Index"><img width="30px" height="30px" src="/Imeg/історія зам.png" /></a>
+
+                    </li>
+                    <li class="nav-item">
+
+
+                        <a class="nav-link text-warning" asp-controller="AddProduct" asp-action="Index"><img width="30px" height="30px" src="/Imeg/addProduct2.png" /></a>
+
+                    </li>
+                    <li class="nav-item">
+
+
+                        <a class="nav-link text-warning" asp-controller="Registration" asp-action="Logout"><img width="30px" height="30px" src="/Imeg/exit4.png" /></a>
+
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Magazin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

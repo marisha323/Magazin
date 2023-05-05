@@ -1,0 +1,105 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    body {
+        font-family: sans-serif;
+        background-color: chartreuse;
+        background: radial-gradient(#e5f89e, #96e001);
+    }
+</style>
+<body>
+
+    <form asp-action="AddCatedory">
+        <div class="form-row">
+            <h3>Add Categoria</h3>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Name Categoria</label>
+                <input name="catName" type="text" class="form-control" id="validationDefault01" placeholder="Product name" value="Apple" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Seve</button>
+
+            <hr />
+        </div>
+    </form>
+
+    @model Product
+    <form enctype="multipart/form-data"  asp-action="AddProduct">
+        <div class="form-row">
+
+            <h2>Add Product</h2>
+            <hr />
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Product name</label>
+                <input asp-for="Name" type="text" class="form-control" id="validationDefault01" placeholder="Product name" value="Apple" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Descriptions</label>
+                <input asp-for="Descriptions" type="text" class="form-control" id="validationDefault02" placeholder="Descriptions" value="...." required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Number</label>
+                <input asp-for="Number" type="text" class="form-control" id="validationDefault02" placeholder="Number" value="1-10 ...." required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Price</label>
+                <input asp-for="Price" type="text" class="form-control" id="validationDefault02" placeholder="Number" value="123" required>
+            </div>
+           @*@model IEnumerable<Magazin.Models.Category>*@
+            <div class="form-row">
+                <div class="col-md-6 mb-5">
+                    <label for="validationDefault03">Category</label>
+                    <div class="input-group mb-3">
+                        <select name="Category" class="custom-select" id="inputGroupSelect02">
+                            <option selected>Product...</option>
+                           @foreach (var item in ViewBag.Categorya)
+                           {
+
+                                <option value="@item.Name">@item.Name</option>
+                           }
+
+                            
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationDefault04">Imeg</label>
+
+
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input name="ImegPass" type="file" class="custom-file-input" >
+
+                            </div>
+                        </div>
+                        <a href="javascript:addFileInput();" style="color: #FF6600">Add More Files</a>
+                        <div id="AddBatonImg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Seve</button>
+    </form>
+</body>
+
+<script>
+    function addFileInput() {
+        var AddButon = document.createElement('div');
+        AddButon.setAttribute("class", "custom-file");
+
+        var Add2 = document.createElement('div');
+        Add2.setAttribute("class", "custom-file");
+
+        var Add3 = document.createElement('input');
+        Add3.setAttribute("name", "ImegPass");
+        Add3.setAttribute("type", "file");
+        Add3.setAttribute("class", "custom-file-input")
+
+        Add2.appendChild(Add3);
+        AddButon.appendChild(Add2);
+        var AddBatonImg = document.getElementById('AddBatonImg');
+        AddBatonImg.appendChild(AddButon);
+    }
+</script>

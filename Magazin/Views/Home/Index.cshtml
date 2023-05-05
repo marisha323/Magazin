@@ -1,0 +1,378 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-color: #A0C4DC;
+    }
+
+    .carousel-item {
+        height: 400px;
+    }
+
+        .carousel-item img {
+            height: 300px;
+        }
+
+    .menu a {
+        text-decoration: none;
+        font-size: 15px;
+        display: block;
+        width: 100%;
+        padding: 15px 15px;
+        color: #2231CC;
+        box-sizing: border-box;
+        background-color: #6DBEBF;
+        font-weight: 800;
+    }
+
+        .menu a:hover, .activado {
+            color: #0D1EDD;
+            background-color: #EC2D4E;
+        }
+
+    .menu {
+        width: 200px;
+        list-style: none;
+        background: #000;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+
+        .menu li ul li {
+            text-indent: 30px;
+        }
+
+        .menu li ul {
+            display: none;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu li {
+            width: 100%;
+        }
+
+        .menu .der {
+            float: right;
+            transition: ease 0.5s all;
+        }
+
+        .menu .izq {
+            float: left;
+        }
+
+        .menu span {
+            margin-left: 5px;
+        }
+
+    .efect {
+        transform: rotate(180deg);
+    }
+
+    .containerBody {
+        margin: auto;
+        font-family: sans-serif;
+        background-color: #64829C;
+    }
+
+    .nameProd {
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+        padding-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .galerry {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 50px 0;
+    }
+
+    .contener {
+        width: 80%;
+        margin: 15px;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 20px;
+        cursor: pointer;
+        padding-top: 10px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
+        transition: .4s;
+        background-color: #A8C9EA;
+    }
+
+        .contener:hover {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+            transform: translate(0px,-8px);
+        }
+
+    .imgProd {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .descripProd {
+        text-align: center;
+        color: gold;
+        padding-top: 0 8px;
+    }
+
+    .prifont {
+        font-size: 26px;
+        text-align: center;
+        color: black;
+        margin: 0;
+    }
+
+    .buttonForm {
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+        width: 100%;
+        padding: 15px;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        margin-top: 5px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        /* background-color: #7AA7D1;*/
+        background-image: linear-gradient(to top, #4782E1 0%, #0856E5 100%);
+        color: #fff;
+    }
+
+    .contenerCartPrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-column-gap: 2em;
+        justify-content: center;
+    }
+</style>
+<body>
+
+
+
+    <div class="container-fluid my-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" style="height:320px;">
+
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://brestmmp.by/uploads/images/img_product/hleb1.jpg" alt="...">
+                </div>
+                <div class="carousel-item ">
+                    <img class="d-block w-100 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIhPL4qg-dS0jPhBnYPRvcYZfBim1MjqmZnw&usqp=CAU" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPvXnKDpyZ-wzPJrEo00Pvb5xyz5Vcl2HSVw&usqp=CAU" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+            </a>
+        </div>
+    </div>
+    <script src="https://use.fontawesome.com/1662ccac73.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <div class="containerBody galerry">
+        <ul class="menu">
+
+            <li>
+                <a href="#"><i class="izq fa fa-object-group"></i><span>Categorias</span><i class="der fa fa-chevron-down"></i></a>
+                <ul>
+                    @foreach (var item in ViewBag.Categorya)
+                    {
+
+                        <li><a href="#">@item.Name</a></li>
+                    }
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    @model IEnumerable<Product>
+    <div class="contenerCartPrid">
+
+
+        @foreach (var item in Model)
+        {
+            @*  @foreach (var item3 in Model.Where(o => o. == item.Id))
+        {
+        <span><img style="width:150px;height:150px " src="@item3.PathImg" /></span>
+        }*@
+
+            <div class="contener">
+                <input id="id" hidden />
+                <a asp-controller="CartProduct" asp-action="Index" asp-route-id="@item.Id">
+                    <img class="imgProd" src="~/Imeg2/@item.Name/@item.PathLong" alt="..." />
+                    <h3 class="nameProd">@item.Name</h3>
+                    @*      <p class="descripProd">@item.Descriptions</p>*@
+                    <h6 class="priceProd">@item.Price грн</h6>
+                    <h6 class="priceProd">Кількість: @item.Number</h6>
+                </a>
+                <form>
+                    <input type="button" asp-route-id="@item.Id" onclick="ToCart(@item.Id)" value="Додати в кошик" class="buttonForm" />
+                </form>
+                @* onclick="AddCartCookie(@item.Id)"*@
+            </div>
+
+        }
+    </div>
+
+
+</body>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $(".menu li:has(ul)").click(function (e) {
+            e.preventDefault();
+
+            if ($(this).hasClass('activado')) {
+                $(".menu ul").slideUp();
+                $('.menu li').removeClass('activado');
+                $('.menu i.der').removeClass('efect');
+            } else {
+                $(".menu ul").slideUp();
+                $('.menu ul li').removeClass('activado');
+                $('.menu i.der').removeClass('efect');
+                $(this).children('ul').slideDown();
+                $(this).addClass('activado');
+                $(this).find('i.der').addClass('efect');
+            }
+
+        });
+    });
+
+
+
+
+
+    console.log("222");
+    function ToCart(id) {
+        console.log("1");
+
+
+        var obj = { Id: id, Amount: 1 };
+        console.log("2");
+
+
+
+        var cart = getCookie("cart");
+        if (cart != undefined) {
+            cart = JSON.parse(cart);
+            cart.push(obj);
+            console.log("3");
+
+        }
+        else {
+            cart = [];
+            cart.push(obj);
+        }
+        console.log("4");
+
+        var str = JSON.stringify(cart);
+        console.log("5");
+
+        setCookie("cart", str, { "max-age": 3600 * 3 });
+    }
+    function deleteCookie(name) {
+        setCookie(name, "", { "max-age": -1 });
+    }
+    //GetCoocie
+    function getCookie(name) {
+        console.log("7");
+
+        let matches = document.cookie.match(new RegExp("(?:^|;)" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    //SETCOOKIE
+    function setCookie(name, value, options = {}) {
+        console.log("8");
+
+        options = {
+
+            path: "/",
+
+
+            // при необходимости добавьте другие значения по умолчанию ...options,
+
+        };
+
+
+        if (options.expires instanceof Date) {
+
+            options.expires = options.expires.toUTCString();
+            console.log("9");
+
+        }
+
+
+        let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+
+        for (let optionKey in options) {
+            console.log("10");
+
+            updatedCookie += "; " + optionKey;
+
+            let optionValue = options[optionKey];
+
+            if (optionValue !== true) {
+
+                updatedCookie += "=" + optionValue;
+                console.log("11");
+
+            }
+
+        }
+
+        document.cookie = updatedCookie;
+
+    }
+
+
+</script>
+
+
+
+
+
+
+<script>
+    $('.carousel').carousel({
+        interval: 1
+    })
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
