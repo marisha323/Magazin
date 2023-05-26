@@ -231,7 +231,7 @@
             <div class="contener">
                 <input id="id" hidden />
                 <a asp-controller="CartProduct" asp-action="Index" asp-route-id="@item.Id">
-                    <img class="imgProd" src="~/Imeg2/@item.Name/@item.PathLong" alt="..." />
+                    <img class="imgProd" src="~/Imeg2/@item.Name.Replace(" ", "-")/@item.PathLong" alt="..." />
                     <h3 class="nameProd">@item.Name</h3>
                     @*      <p class="descripProd">@item.Descriptions</p>*@
                     <h6 class="priceProd">@item.Price грн</h6>
@@ -250,10 +250,11 @@
 </body>
 
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function () {
+        console.log("222");
         $(".menu li:has(ul)").click(function (e) {
             e.preventDefault();
 
@@ -273,35 +274,24 @@
         });
     });
 
-
-
-
-
-    console.log("222");
+   
     function ToCart(id) {
-        console.log("1");
-
 
         var obj = { Id: id, Amount: 1 };
-        console.log("2");
-
-
-
+       
         var cart = getCookie("cart");
         if (cart != undefined) {
             cart = JSON.parse(cart);
             cart.push(obj);
-            console.log("3");
+            
 
         }
         else {
             cart = [];
             cart.push(obj);
         }
-        console.log("4");
-
+     
         var str = JSON.stringify(cart);
-        console.log("5");
 
         setCookie("cart", str, { "max-age": 3600 * 3 });
     }
@@ -310,21 +300,14 @@
     }
     //GetCoocie
     function getCookie(name) {
-        console.log("7");
-
         let matches = document.cookie.match(new RegExp("(?:^|;)" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
     //SETCOOKIE
     function setCookie(name, value, options = {}) {
-        console.log("8");
-
         options = {
 
             path: "/",
-
-
-            // при необходимости добавьте другие значения по умолчанию ...options,
 
         };
 
@@ -362,17 +345,11 @@
 
 
 </script>
-
-
-
-
-
-
 <script>
     $('.carousel').carousel({
         interval: 1
     })
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

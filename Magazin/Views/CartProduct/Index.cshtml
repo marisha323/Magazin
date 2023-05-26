@@ -264,8 +264,8 @@
             <div class="container">
                 @model Product
                 <div class="main-photo">
-                    
-                     <img src="~/Imeg2/@Model.Name/@Model.PathLong" />
+
+                    <img src="~/Imeg2/@Model.Name.Replace(" ", "-")/@Model.PathLong" />
                     
                 </div>
                 <div class="social">
@@ -279,29 +279,10 @@
                 {
                     <div>
 
-                        <img src="~/Imeg2/@Model.Name/@item.Pass" />
+                        <img src="~/Imeg2/@Model.Name.Replace(" ", "-")/@item.Pass" />
 
                     </div>
-                }
-
-                @*  <div>
-                @foreach (var item in Model)
-                {
-                <img src="~/Imeg2/@item.Name/@item.PathLong" />
-                }
-                </div>
-                <div>
-                @foreach (var item in Model)
-                {
-                <img src="~/Imeg2/@item.Name/@item.PathLong" />
-                }
-                </div>
-                <div>
-                @foreach (var item in Model)
-                {
-                <img src="~/Imeg2/@item.Name/@item.PathLong" />
-                }
-                </div>*@
+                }            
             </div>
         </div>
         <div class="right-side">
@@ -331,5 +312,6 @@
                 <button>ADD TO CART</button>
             </div>
         </div>
+
     </div>
 </div>

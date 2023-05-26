@@ -15,8 +15,8 @@
         public int? UserId { get; set; }
         public virtual User User { get; set; }
 
-        public int? BasketId { get; set; }
-        public virtual Basket Basket { get; set; }
+        public int? BasketsProductId { get; set; }
+        public virtual BasketsProduct BasketsProduct { get; set; }
 
         public ICollection<Imeg> Imegs { get; set; }
         public Product()

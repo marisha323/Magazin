@@ -16,15 +16,6 @@ namespace Magazin.Controllers
         {
             this.context = db;
         }
-        //public async Task<ActionResult> Index(/*[Bind] Product product1*/)
-        //{
-        //    //context.Products.Add(product1);
-        //    //await context.SaveChangesAsync();
-        //    //return Redirect("/ConferenceForRegistered/Index");
-
-        //    return View();
-        //}
-
         public IActionResult AddCatedory(string catName)
         {
             context.Categories.Add(new Category() { Name = catName });

@@ -5,12 +5,13 @@
 }
 <style>
     body{
-        background-color:lightgreen;
+        background-color: #6DBEBF;
+        color: #DFFFFF;
     }
     .bodyForm {
-        background-image: url("http://kolbasa.in.ua/image/Kolbasa.jpg");
+        background-image: url(https://ideireceptov.ru/wp-content/uploads/2020/10/foto-14-38.jpg);
         background-size: no-repeat;
-        color:chartreuse;
+        
         opacity: 0.8;
     }
 </style>
@@ -35,7 +36,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Phone</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="0987775553" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -46,7 +47,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend">@@</span>
                     </div>
-                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="Email" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
                         Please choose a username.
                     </div>
@@ -80,6 +81,27 @@
                 <label for="contactChoice1">Оплатити зараз</label> 
             </div>
             
+        </div>
+        <div class="form-row">
+            
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <label for="contactChoice1">Відправка Новою Поштою</label>"
+
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <label for="contactChoice1">Відправка УкрПоштою</label>
+            </div>
+
         </div>
         
         <button class="btn btn-primary" type="submit">Submit form</button>
